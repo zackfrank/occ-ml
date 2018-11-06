@@ -49,11 +49,14 @@ var HomePage = {
     },
     fillIn: function() {
       let params = {
-        values: this.values
+        values: this.values,
+        fields: this.fields,
+        solution_id: this.solutionId
       };
-      axios.patch('/v1/solutions/' + this.solutionId, params).then(function(response) {
-        this.solution = response.data;
-        console.log(response.data);
+      axios.patch('/v1/fields', params).then(function(response) {
+        axios.get('/v1/solutions/' + this.solutionId, {params: params}).then(function(response) {
+          this.solution = response.data;
+        }.bind(this));
       }.bind(this));
     }
   },
