@@ -96,7 +96,7 @@ Feature: Manage mad_libs
   ### STOP Here unless you want bonus points! ###
   ###############################################
 
-  @wip
+  # @wip
   Scenario: Create a madlib via web
     Given I am on the home page
     When I fill in the text:

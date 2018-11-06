@@ -1,4 +1,10 @@
 Madlibs::Application.routes.draw do
+  namespace :v1 do
+    post "/mad_libs" => "mad_libs#create"
+    post "/solutions" => "solutions#create"
+  end
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
