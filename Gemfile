@@ -35,13 +35,16 @@ gem 'jquery-rails'
 
 # To use debugger
 #gem 'debugger'
+gem 'chromedriver-helper', '~> 1.0'
 
 group :development do
   gem 'annotate'
 end
 
 group :test do
-  gem 'capybara'
+  gem 'capybara-selenium'
+  gem 'chromedriver-helper', '~> 1.0'
+  gem 'selenium-webdriver'
   gem 'cucumber-rails'
   gem 'database_cleaner'
   gem 'guard-cucumber'

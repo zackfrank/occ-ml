@@ -3,10 +3,31 @@ ENV["RAILS_ENV"] ||= 'test'
 require File.expand_path("../../config/environment", __FILE__)
 require 'rspec/rails'
 require 'rspec/autorun'
+# require 'selenium/webdriver'
+# require 'capybara'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
-Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+# Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
+
+# Capybara.register_driver :chrome do |app|
+#   Capybara::Selenium::Driver.new(app, browser: :chrome)
+# end
+
+# Capybara.register_driver :headless_chrome do |app|
+#   capabilities = Selenium::WebDriver::Remote::Capabilities.chrome(
+#     chromeOptions: { args: %w(headless disable-gpu) }
+#   )
+
+#   Capybara::Selenium::Driver.new app,
+#     browser: :chrome,
+#     desired_capabilities: capabilities
+# end
+
+# Capybara.javascript_driver = :headless_chrome
+
+# Selenium::WebDriver::Firefox::Binary.path =
+#   "/opt/homebrew-cask/Caskroom/Firefox/latest/Firefox.app/Contents/MacOS/firefox"
 
 RSpec.configure do |config|
   # ## Mock Framework

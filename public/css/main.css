@@ -2,6 +2,28 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+a {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 15px;
+  margin-top: 5px;
+  padding: 5px;
+  color: rgba(250, 168, 24, 0.75);
+  text-decoration: none;
+  font-weight: 900;
+}
+
+a:hover {
+  color: rgba(250, 168, 24, 1);
+}
+
+a:active {
+  color: rgba(250, 168, 24, 1);
+  background-color:rgba(55,55,55,0.5);
+  border-radius: 4px;
+}
+
 h1 {
   background-color: rgba(55,55,55,0.95);
   width: 60%;

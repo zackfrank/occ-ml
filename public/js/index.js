@@ -60,8 +60,23 @@ var HomePage = {
   computed: {}
 };
 
+var ReportsPage = {
+  template: "#reports-page",
+  data: function() {
+    return {
+      thing: null
+    };
+  },
+  created: function() {},
+  methods: {},
+  computed: {}
+};
+
 var router = new VueRouter({
-  routes: [{ path: "/", component: HomePage }],
+  routes: [
+    { path: "/", component: HomePage },
+    { path: "/reporting", component: ReportsPage }
+  ],
   scrollBehavior: function(to, from, savedPosition) {
     return { x: 0, y: 0 };
   }
