@@ -8,7 +8,8 @@ var HomePage = {
       text: null,
       fields: null,
       solutionId: null,
-      values: []
+      values: {},
+      solution: null
     };
   },
   created: function() {},
@@ -47,7 +48,13 @@ var HomePage = {
       }
     },
     fillIn: function() {
-
+      let params = {
+        values: this.values
+      };
+      axios.patch('/v1/solutions/' + this.solutionId, params).then(function(response) {
+        this.solution = response.data;
+        console.log(response.data);
+      }.bind(this));
     }
   },
   computed: {}

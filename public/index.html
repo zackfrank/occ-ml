@@ -27,6 +27,7 @@
 
     <h1><img src="imgs/header.png" alt=""></h1>
     <p v-if="fields">New Mad Lib created</p>
+    <p v-if="solution">Your Mad Lib Solution: {{solution}}</p>
     
     <div v-if="!fields">
       <p id="instructions">
@@ -63,10 +64,10 @@
         <button id="create" @click="createMadLib()">Create</button>
       </div>
       <!-- START FIELDS -->
-      <div id="fields" v-if="fields">
+      <div id="fields" v-if="fields && !solution">
         <div v-for="field in fields" class="field-inputs">
           <label :for="field">{{field.formatted_label}}</label>
-          <input type="text" :name="field.formatted_label" :id="field.id">
+          <input type="text" :name="field.formatted_label" :id="field.id" v-model="values[field.formatted_label]">
         </div>
         <button id="fill-in" @click="fillIn()" v-if="fields">Fill In</button>
       </div> 

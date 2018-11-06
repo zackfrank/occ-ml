@@ -1,5 +1,5 @@
 class Solution < ApplicationRecord
-  attr_reader :text, :formatted_text
+  attr_reader :text
   belongs_to :mad_lib
   has_many :fields
 
@@ -8,20 +8,19 @@ class Solution < ApplicationRecord
   end
 
   def format_text
-    @formatted_text = text.dup
     fields = mad_lib.fields.sort
     fields.each do |field|
-      @formatted_text.sub!("{#{field.original_label}}", "#{field.formatted_label}")
+      text.sub!("{#{field.original_label}}", "#{field.formatted_label}")
     end
   end
 
   def fill_field(label, with:)
-    format_text unless formatted_text
-    formatted_text.sub!(label, with)
+    format_text
+    text.sub!(label, with)
   end
 
   def resolve
-    formatted_text
+    text
   end 
 
 end

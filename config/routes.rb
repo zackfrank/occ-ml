@@ -1,7 +1,7 @@
 Madlibs::Application.routes.draw do
   namespace :v1 do
     post "/mad_libs" => "mad_libs#create"
-    post "/solutions" => "solutions#create"
+    patch "/solutions/:id" => "solutions#update"
   end
 
 
