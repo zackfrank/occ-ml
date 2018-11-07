@@ -4,20 +4,20 @@ class MadLib < ApplicationRecord
   attr_reader :formatted_fields
 
   def has_field?(label)
-    if self.fields.length == 0
+    if fields.length == 0
       construct_fields
-      self.reload
+      reload
     end
     formatted_labels.include? label
   end
 
   def construct_fields
-    FieldFactory.new(text, self.id)
+    FieldFactory.new(text, id)
   end
   
   private
     def formatted_labels
-      self.fields.map {|field| field.formatted_label}
+      fields.map {|field| field.formatted_label}
     end
 
 end
