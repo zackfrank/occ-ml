@@ -54,7 +54,7 @@ var HomePage = {
         solution_id: this.solutionId
       };
       axios.patch('/v1/fields', params).then(function(response) {
-        axios.get('/v1/solutions/' + this.solutionId, {params: params}).then(function(response) {
+        axios.post('/v1/solutions/' + this.solutionId, params).then(function(response) {
           this.solution = response.data;
         }.bind(this));
       }.bind(this));
@@ -67,10 +67,16 @@ var ReportsPage = {
   template: "#reports-page",
   data: function() {
     return {
-      thing: null
+      labelCounts: {},
+      answerCounts: {}
     };
   },
-  created: function() {},
+  created: function() {
+    axios.get('/v1/reports').then(function(response) {
+      this.labelCounts = response.data.label_counts;
+      this.answerCounts = response.data.answer_counts;
+    }.bind(this));
+  },
   methods: {},
   computed: {}
 };

@@ -4,7 +4,9 @@ Madlibs::Application.routes.draw do
     
     patch "/fields" => "fields#update"
     
-    get "/solutions/:id" => "solutions#show"
+    post "/solutions/:id" => "solutions#create"
+
+    get "/reports" => "reports#index"
   end
 
 

@@ -2,6 +2,18 @@ body {
   font-family: 'Open Sans', sans-serif;
 }
 
+/* ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+Resources:
+  - Main orange color: rgb(250, 168, 24); 
+    - also: #faa818;
+  - Main grey color: rgb(55, 55, 55);
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ */
+
+
+/* --------------------------------------
+        HOME PAGE / MAIN STYLINGS
+ -------------------------------------- */ 
+
 a {
   position: absolute;
   top: 0;
@@ -158,10 +170,41 @@ button#fill-in {
   width: 20%;
 }
 
+/* --------------------------------------
+        REPORTS PAGE STYLINGS
+ -------------------------------------- */ 
+
+table {
+  border-collapse: collapse;
+  width: 30%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+td, th {
+  border: 1px solid rgba(55,55,55,0.95);
+  text-align: left;
+  padding: 8px;
+  text-align: center;
+  
+}
+
+tr:nth-child(even) {
+  background-color: rgba(250, 168, 24, 0.5);
+}
+
+tr:nth-child(odd) {
+  background-color: rgba(55, 55, 55, 0.3);
+}
+
+tr th {
+  background-color: rgba(55, 55, 55, 0.8);
+  color: white;
+}
 
 /*
 ------------------------------
-        RESPONSIVENESS
+    RESPONSIVENESS STYLING
 ------------------------------
 */
 
@@ -177,6 +220,10 @@ button#fill-in {
   div#example, p#notice {
     max-width: 65%;
   }
+
+  table {
+    width: 40%;
+  }
 }
 
 @media screen and (max-width: 760px) {
@@ -185,6 +232,9 @@ button#fill-in {
   }
   div#fields {
     max-width: 65%;
+  }
+  table {
+    width: 55%;
   }
 }
 
@@ -195,6 +245,7 @@ button#fill-in {
   div#fields {
     max-width: 85%;
   }
-
+  table {
+    width: 60%;
+  }
 }
-

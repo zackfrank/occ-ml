@@ -82,7 +82,28 @@
 <template id="reports-page">
   <div class="vue-component">
     <a href="/">Home</a>
-    <h1><img src="imgs/header.png" alt=""></h1>    
+    <h1><img src="imgs/header.png" alt=""></h1> 
+
+    <p>Mad Libs Usage Report:</p>
+    <table>
+      <tr>
+        <th>Usage</th>
+        <th>Counts</th> 
+      </tr>
+      <tr v-for="labelCount in labelCounts">
+        <td>{{labelCount.label}}:</td>
+        <td>{{labelCount.count}}</td>
+      </tr>
+      <tr>
+        <th>Answers</th>
+        <th>Counts</th> 
+      </tr>
+      <tr v-for="answerCount in answerCounts">
+        <td>{{answerCount.answer}}:</td>
+        <td>{{answerCount.count}}</td>
+      </tr>
+    </table>
+
   </div>
 </template>
 

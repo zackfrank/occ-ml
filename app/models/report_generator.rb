@@ -12,9 +12,12 @@ class ReportGenerator
   end
 
   def answer_counts
-    counted_answers = {}
+    counted_answers = []
     unique_answers.each do |answer|
-      counted_answers[answer] = answers.count(answer)
+      answer_count = {}
+      answer_count[:answer] = answer
+      answer_count[:count] = answers.count(answer)
+      counted_answers << answer_count
     end
     counted_answers
   end
@@ -27,21 +30,16 @@ class ReportGenerator
     fields.map {|field| field.original_label}.compact
   end
 
-  def unique_labels
-    original_labels.uniq
+  def first_words_of_original_labels
+    original_labels.map {|label| get_first_word(label)}
   end
 
-  # def formatted_labels
-  #   unique_labels.map do |label|
-  #     label.split(" ")[0].split(",")
-  #     label.capitalize
-  #     label << 's'
-  #   end
-  # end
+  def unique_labels
+    first_words_of_original_labels.uniq
+  end
+
   def format(label)
-    label = get_first_word(label)
-    label.capitalize!
-    label << 's'
+    label.capitalize << 's'
   end
 
   def get_first_word(label)
@@ -49,9 +47,12 @@ class ReportGenerator
   end
 
   def label_counts
-    counted_labels = {}
+    counted_labels = []
     unique_labels.each do |label| 
-      counted_labels[format(label)] = original_labels.count(label)
+      label_count = {}
+      label_count[:label] = format(label)
+      label_count[:count] = first_words_of_original_labels.count(label)
+      counted_labels << label_count
     end
     counted_labels
   end

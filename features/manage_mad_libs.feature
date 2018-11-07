@@ -172,6 +172,7 @@ Feature: Manage mad_libs
       """
 
   # @wip
+  @javascript
   Scenario: web reporting
     Given I input all these madlibs again
     When I go to the reporting page
