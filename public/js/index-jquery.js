@@ -9,7 +9,17 @@ $(document).ready(function() {
   });
 
   $('.brackets').hover(function() {
-    $(this).toggleClass('magnify');
+    $(this).toggleClass("magnify");
+  });
+
+  $('#left-bracket').click(function() {
+    var input = $('textarea');
+    input.val(input.val() + "{" );
+  });
+
+  $('#right-bracket').click(function() {
+    var input = $('textarea');
+    input.val(input.val() + "}" );
   });
 
 });

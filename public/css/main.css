@@ -104,10 +104,12 @@ div#info {
 
 img.brackets {
   max-height: 25px;
+  transition: 1s;
 }
 
 img.magnify {
   max-height: 60px;
+  transition: 1s;
 }
 
 div.input {
